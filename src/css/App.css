@@ -1,0 +1,145 @@
+body{
+  font-family: Verdana, Arial, Helvetica, Sans-Serif !important;
+}
+
+div>header{
+  display: flex;
+  flex-wrap: wrap;
+  width: 99vw;
+  min-height: 48px;
+}
+
+header .BannerBox{
+  width: 40vw;
+  background-image: url("../images/title-bg.jpg");
+}
+
+header .ParentHeader{
+  position: fixed;
+  top: 30px;
+  right: 13.9vw;
+}
+
+header .break {
+  flex-basis: 100%;
+  height: 0;
+}
+
+header section.fade{
+  background-image: url("../images/rightfade.jpg");
+  background-repeat: no-repeat;
+  width: 10.7vw;
+}
+
+header section.rightFill{
+  background-image: url("../images/rightbg.jpg");
+  min-width: 30vw;
+  width: 48vw;
+  display: flex;
+  flex-direction: row;
+  /* justify-content: flex-end; */
+}
+
+header section .MuiTypography-body1,
+header div .MuiTypography-body1,
+header section .MuiLink-root,
+header button{
+  font-size: 10px !important;
+}
+
+header section .MuiTypography-body1,
+header div .MuiTypography-body1,
+header section .MuiLink-root{
+  color: white !important;
+}
+
+header div.ParentHeader label p,
+header div .MuiFormControlLabel-label{
+  color: black !important;
+}
+
+header section p,
+header section a,
+header section .MuiFormControlLabel-label,
+header div .MuiTypography-root{
+  font-weight: bold;
+  margin-left: 10px;
+  padding-bottom: 10px;
+}
+
+.footer{
+  font-size: 12px !important;
+  display: inline;
+}
+
+footer div{
+  border-color:black;
+  border-radius:5;
+  border-style: solid;
+  border-width: 1px;
+  width: 60vw;
+  margin-left: 100px;
+}
+
+footer ul{
+  padding: revert !important;
+  list-style: initial !important;
+  margin: 10px 0, 0 10px;
+}
+
+footer ul li{
+  /* padding: revert !important; */
+  display: list-item !important;
+}
+
+footer ul li:first-child{
+  color: red;
+}
+
+footer img{
+  width: 180px;
+  height: 72px;
+}
+
+.fullWidth{
+  width: 100%;
+}
+
+.fillSpace80{
+  width: 27vw;
+}
+
+.alingRight{
+  text-align: right;
+}
+
+.Apps,
+.SelectedApp{
+  border-radius: 40px !important;
+  margin-left: 5px !important;
+  min-width: 9vw !important;
+  max-height: 20px !important;
+}
+
+.Apps{
+  background-color: #b5d4ed !important;
+  color: black !important;
+}
+
+.Apps:hover,
+.SelectedApp{
+  background-color: #124c80 !important;
+  color: white !important;
+  font-weight: bold !important;
+}
+
+.AppMenu{
+  background-color:#04033a;
+  margin-top: 10px;
+}
+
+.AppMenu button{
+  color: white;
+  text-transform: capitalize !important;
+  font-size: 0.9em !important;
+}
