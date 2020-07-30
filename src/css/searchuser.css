@@ -1,15 +1,16 @@
 .titleContainer {
   border-style: solid;
   border-color: black;
-  width: 400px;
+  border-width: 1px;
+  width: 300px;
   margin: 20px;
   text-align: center;
+  color: black;
 }
 .container {
-  border-style: solid;
-  border-color: blue;
-  width: 800px;
   display: flex;
-  align-items: center;
   justify-content: center;
+}
+.select {
+  display: inline;
 }
