@@ -14,6 +14,7 @@ import {
   Theme,
   createStyles,
 } from "@material-ui/core";
+import { ArrowLeft } from "@material-ui/icons/";
 import "../../css/searchuser.css";
 
 const StyledTableCell = withStyles((theme: Theme) =>
@@ -42,32 +43,36 @@ interface Column {
   id: "userId" | "userName" | "title" | "department" | "office" | "phoneNumber";
   label: string;
   minWidth?: number;
-  align?: "right";
+  align?: "center";
   format?: (value: number) => string;
 }
 
 const columns: Column[] = [
-  { id: "userId", label: "User ID", minWidth: 170 },
-  { id: "userName", label: "User Name", minWidth: 100 },
+  { id: "userId", label: "User ID", minWidth: 170, align: "center" },
+  { id: "userName", label: "User Name", minWidth: 100, align: "center" },
   {
     id: "title",
-    label: "title",
+    label: "Title",
     minWidth: 170,
+    align: "center",
   },
   {
     id: "department",
-    label: "department",
+    label: "Department",
     minWidth: 170,
+    align: "center",
   },
   {
     id: "office",
     label: "Office",
     minWidth: 170,
+    align: "center",
   },
   {
     id: "phoneNumber",
-    label: "phoneNumber",
+    label: "Phone Number",
     minWidth: 170,
+    align: "center",
   },
 ];
 
@@ -91,8 +96,15 @@ function createData(
   return { userId, userName, title, department, office, phoneNumber };
 }
 
-const rows = [
-  createData("1", "1", "1", "1", "1", 1),
+const data = [
+  createData(
+    "OIGHINSinqhA",
+    "Singh, Amber L",
+    "54BA Associate Director",
+    "Department of Veteran Affairs",
+    "Chicago Office of HealthCare Inspections (54MH00)",
+    7082022690
+  ),
   createData("2", "2", "2", "2", "2", 2),
   createData("3", "3", "3", "3", "3", 3),
   createData("4", "4", "4", "4", "4", 4),
@@ -110,7 +122,10 @@ const useStyles = makeStyles({
     width: "100%",
   },
   container: {
-    maxHeight: 440,
+    maxHeight: 600,
+  },
+  head: {
+    width: "100%",
   },
 });
 
@@ -135,59 +150,90 @@ export default function StickyHeadTable() {
       <Box className="container">
         <h4 className="titleContainer">User Search Results</h4>
       </Box>
-      <Paper className={classes.root}>
-        <TableContainer className={classes.container}>
-          <Table stickyHeader aria-label="sticky table">
+      <Box
+        className="container"
+        style={{ alignItems: "center", cursor: "pointer" }}
+      >
+        <ArrowLeft />
+        <h4>
+          <u>Try a new search</u>
+        </h4>
+      </Box>
+      <Box className="tableContainer">
+        <TableContainer component={Paper}>
+          <Table
+            className={classes.head}
+            size="small"
+            aria-label="a dense table"
+          >
             <TableHead>
               <TableRow>
-                {columns.map((column) => (
-                  <StyledTableCell
-                    key={column.id}
-                    align={column.align}
-                    style={{ minWidth: column.minWidth }}
-                  >
-                    {column.label}
-                  </StyledTableCell>
-                ))}
+                <TableCell align="center">
+                  Displaying Search results for
+                </TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
-              {rows
-                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                .map((row) => {
-                  return (
-                    <StyledTableRow
-                      hover
-                      role="checkbox"
-                      tabIndex={-1}
-                      key={row.userName}
-                    >
-                      {columns.map((column) => {
-                        const value = row[column.id];
-                        return (
-                          <TableCell key={column.id} align={column.align}>
-                            {column.format && typeof value === "number"
-                              ? column.format(value)
-                              : value}
-                          </TableCell>
-                        );
-                      })}
-                    </StyledTableRow>
-                  );
-                })}
+              <TableRow>
+                <TableCell align="center">Last Name: Singh</TableCell>
+              </TableRow>
             </TableBody>
           </Table>
         </TableContainer>
-        <TablePagination
-          rowsPerPageOptions={[10, 25, 100]}
-          component="div"
-          count={rows.length}
-          rowsPerPage={rowsPerPage}
-          page={page}
-          onChangePage={handleChangePage}
-          onChangeRowsPerPage={handleChangeRowsPerPage}
-        />
-      </Paper>
+        <Paper className={classes.root}>
+          <TableContainer className={classes.container}>
+            <Table stickyHeader aria-label="sticky table">
+              <TableHead>
+                <TableRow>
+                  {columns.map((column) => (
+                    <StyledTableCell
+                      key={column.id}
+                      align={column.align}
+                      style={{ minWidth: column.minWidth }}
+                    >
+                      {column.label}
+                    </StyledTableCell>
+                  ))}
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                {data
+                  .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                  .map((row) => {
+                    return (
+                      <StyledTableRow
+                        hover
+                        role="checkbox"
+                        tabIndex={-1}
+                        key={row.userName}
+                      >
+                        {columns.map((column) => {
+                          const value = row[column.id];
+                          return (
+                            <TableCell key={column.id} align={column.align}>
+                              {column.format && typeof value === "number"
+                                ? column.format(value)
+                                : value}
+                            </TableCell>
+                          );
+                        })}
+                      </StyledTableRow>
+                    );
+                  })}
+              </TableBody>
+            </Table>
+          </TableContainer>
+          <TablePagination
+            rowsPerPageOptions={[10, 25, 100]}
+            component="div"
+            count={data.length}
+            rowsPerPage={rowsPerPage}
+            page={page}
+            onChangePage={handleChangePage}
+            onChangeRowsPerPage={handleChangeRowsPerPage}
+          />
+        </Paper>
+      </Box>
     </React.Fragment>
   );
 }

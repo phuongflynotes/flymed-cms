@@ -139,9 +139,9 @@ export const UserAdminMenuComponent = (props: Props) => {
           title={<span className="submenu-title-wrapper">Users</span>}
           key="2"
         >
-          <MenuItem key="2-1">Option 1</MenuItem>
-          <MenuItem key="2-2">Option 2</MenuItem>
-          <MenuItem key="2-3">Option 3</MenuItem>
+          <MenuItem key="2-1">Manage an Existing User</MenuItem>
+          <MenuItem key="2-2">Add a New User</MenuItem>
+          <MenuItem key="2-3">Update Self Preferences</MenuItem>
         </SubMenu>
       </Menu>
     </Box>
