@@ -12,8 +12,8 @@ export const HeaderComponent = () => {
       <section className="fade"></section>
       <UserInfonComponent />
       <PCMMAppsComponent isPcmm={true} />
-      <PCMMMenuComponent showMenu={true} />
-      {/* <UserAdminMenuComponent showMenu={true} /> */}
+      {/* <PCMMMenuComponent showMenu={true} /> */}
+      <UserAdminMenuComponent showMenu={true} />
     </Fragment>
   );
 };

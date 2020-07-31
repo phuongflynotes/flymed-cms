@@ -4,6 +4,9 @@ import { createBrowserHistory } from "history";
 
 import Station from "./Station/Station";
 import SearchExistingUsers from "./Users/UserManagement/SearchExistingUsers";
+import SearchUsers from "./Users/UserManagement/SearchUsers";
+import SearchResults from "./Users/UserManagement/SearchResults";
+import SitePreferences from "./Users/UserManagement/SitePreferences";
 
 interface routerState {
   url: string;
@@ -18,7 +21,9 @@ export default class AppRouter extends React.Component {
         <Switch>
           {/* <Route exact path="/station" component={Station} /> */}
           {/* <Route exact path="/UserAdmin" component={SearchExistingUsers} /> */}
-          <SearchExistingUsers />
+          {/* <SearchResults /> */}
+          {/* <SearchUsers /> */}
+          <SitePreferences />
         </Switch>
       </Router>
     );
