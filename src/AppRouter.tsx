@@ -1,6 +1,5 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { createBrowserHistory } from "history";
 
 import Station from "./Station/Station";
 import SearchExistingUsers from "./Users/UserManagement/SearchExistingUsers";
@@ -13,12 +12,9 @@ interface routerState {
   url: string;
 }
 
-const history = createBrowserHistory();
-
 export default class AppRouter extends React.Component {
   render() {
     return (
-      <Router>
         <Switch>
           <Route exact path="/" component={SearchExistingUsers} />
           <Route exact path="/user-details" component={UserDetails} />
@@ -28,7 +24,6 @@ export default class AppRouter extends React.Component {
           {/* <SearchUsers /> */}
           <SitePreferences />
         </Switch>
-      </Router>
     );
   }
 }
