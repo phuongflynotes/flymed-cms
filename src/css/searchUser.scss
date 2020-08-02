@@ -1,0 +1,30 @@
+.formContainer {
+  width: 60%;
+  margin: 0 auto;
+}
+
+.titleContainer {
+  border: 1px solid black;
+  width: 50%;
+  margin: 15px auto;
+
+  > h4 {
+    margin-bottom: 0;
+  }
+}
+.container {
+  border-style: solid;
+  border-color: blue;
+  width: 800px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.labelArea {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+.selectMultiple {
+  border: 1px solid #000000;
+}
