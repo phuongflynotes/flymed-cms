@@ -9,12 +9,9 @@ import {
   Select,
   Button,
 } from "@material-ui/core";
-import { createBrowserHistory } from "history";
-
 import {dataUsers} from "../../data/users";
 import "../../css/searchUser.scss";
 
-const history = createBrowserHistory();
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -50,7 +47,8 @@ const useStyles = makeStyles((theme) => ({
 
 interface Props {}
 
-const SearchExistingUsers = (props: Props) => {
+const SearchExistingUsers = (props: any) => {
+  const {history} = props;
   const classes = useStyles();
   const [userName, setUserName] = React.useState([]);
 
@@ -66,9 +64,15 @@ const SearchExistingUsers = (props: Props) => {
     setUserName(value);
   };
 
+  const goToNextPage = (event: any) => {
+    event.preventDefault();
+
+    history.push('user-details');
+  }
+
   return (
     <Container>
-      <div className="titleContainer">
+      <div className="headerContainer">
         <Typography
           component="h4"
           variant="h5"
@@ -118,7 +122,7 @@ const SearchExistingUsers = (props: Props) => {
                   variant="contained"
                   color="secondary"
                   className={classes.button}
-                  onClick={() => history.push('user-details')}
+                  onClick={goToNextPage}
                 >
                   Submit
                 </Button>

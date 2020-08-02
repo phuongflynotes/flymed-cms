@@ -9,7 +9,6 @@ import {
   Checkbox,
   makeStyles,
 } from "@material-ui/core";
-import { createBrowserHistory } from "history";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import ViewApplications from './ViewApplications';
@@ -17,7 +16,6 @@ import { dataRoles, dataStations } from "../../data/userDetails";
 import { dataTimeZones } from "../../data/timeZones";
 import "./styles.scss";
 
-const history = createBrowserHistory();
 interface Props {}
 
 const useStyles = makeStyles((theme) => ({
@@ -32,7 +30,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const UserDetails = (props: Props) => {
+const UserDetails = (props: any) => {
+  const {history} = props;
   const classes = useStyles();
   const [roles, setRoles] = React.useState([]);
   const [rolesSelected, setRolesSelected] = React.useState([]);
@@ -60,9 +59,14 @@ const UserDetails = (props: Props) => {
     setTimeZones(event.target.value);
   };
 
+  const goToNextPage = (event: any) => {
+    event.preventDefault();
+    history.push("view-application");
+  }
+
   return (
     <Container className="userDetailContainer">
-      <div className="titleContainer">
+      <div className="headerContainer">
         <Typography
           component="h4"
           variant="h5"
@@ -330,7 +334,7 @@ const UserDetails = (props: Props) => {
             variant="contained"
             color="secondary"
             className={classes.button}
-            onClick={() => history.push("view-application")}
+            onClick={goToNextPage}
           >
             Submit
           </Button>{" "}
