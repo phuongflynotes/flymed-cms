@@ -1,23 +1,33 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { fab } from '@fortawesome/free-brands-svg-icons';
-import { faEnvelope, faCaretLeft, faCaretRight, faMinusSquare, faSort } from '@fortawesome/free-solid-svg-icons';
+import * as React from "react";
+import * as ReactDOM from "react-dom";
+import OfflinePluginRuntime from "offline-plugin/runtime";
+import { Provider } from "react-redux";
+import { AppContainer } from 'react-hot-loader';
 
-import "./css/index.css";
-import App from "./App";
-import * as serviceWorker from "./serviceWorker";
+import '@Root/i18n';
 
-library.add(fab, faEnvelope, faCaretLeft, faCaretRight, faMinusSquare, faSort);
+import App from "@Root/pages/App";
+import { isProduction } from '@Root/utils';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById("root")
+// Webpack offline plugin
+if (isProduction) {
+	OfflinePluginRuntime.install();
+}
+
+import {store} from './configureStore';
+
+const render = (Component:any) => (
+	ReactDOM.render(
+	  <Provider store={store}>
+		<AppContainer>
+	    	<Component />
+		</AppContainer>
+	  </Provider>,
+	  document.getElementById("root")
+	)
 );
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+render(App);
+
+// Webpack Hot Module Replacement API
+if ((module as any).hot) (module as any).hot.accept('@Root/pages/App', () => render(App));
