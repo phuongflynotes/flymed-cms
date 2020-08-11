@@ -32,6 +32,7 @@ render(App);
 // Webpack Hot Module Replacement API
 if ((module as any).hot) {
 	(module as any).hot.accept('@Root/pages/App', () => {
-		render(App)
+		const NextApp = require('@Root/pages/App').default;
+		render(NextApp)
 	});
 }

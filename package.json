@@ -49,7 +49,7 @@
     "webpack-cli": "^3.3.12"
   },
   "scripts": {
-    "start": "webpack-dev-server --mode development --hot --open",
+    "start": "webpack-dev-server --mode development --open --hot",
     "build:dev": "webpack --mode development",
     "build": "webpack --mode production"
   },
