@@ -1,52 +1,16 @@
-/**
-|--------------------------------------------------
-| All the interfaces!!
-|--------------------------------------------------
-*/
-export interface IRisk {
-  airdate: string
-  airstamp: string
-  airtime: string
-  id: number
-  image: { medium: string; original: string }
-  name: string
-  number: number
-  runtime: number
-  season: number
-  summary: string
-  url: string
+import { Record } from 'immutable';
+
+import { IRisksStateRecord } from '@Root/services/risks/types';
+
+// Global state
+export interface IGlobalState {
+  risksState: IRisksStateRecord;
 }
+export interface IGlobalStateRecord extends Record<IGlobalState>, IGlobalState {}
 
-export interface IState {
-  risks: Array<IRisk>
-  favourites: Array<IRisk>
-}
-
-export interface IAction {
-  type: string
-  payload: Array<IRisk> | any
-}
-
-export type Dispatch = React.Dispatch<IAction>
-
-export type FavAction = (
-  state: IState,
-  dispatch: Dispatch,
-  episode: IRisk
-) => IAction
-
-
-export interface IRiskProps {
-  risks: Array<IRisk>
-  store: { state: IState; dispatch: Dispatch }
-  toggleFavAction: FavAction
-  favourites: Array<IRisk>
-}
-
-export interface IProps {
-  risks: Array<IRisk>
-  store: { state: IState; dispatch: Dispatch }
-  toggleFavAction: FavAction
-  favourites: Array<IRisk>
-
+// Interface for async call steps
+export interface IAsyncCall {
+  REQUESTED: string;
+  SUCCESS: string;
+  FAILURE: string;
 }

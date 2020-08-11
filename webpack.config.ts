@@ -7,8 +7,10 @@ const htmlPlugin = new HtmlWebPackPlugin({
     filename: "./index.html"
 });
 
+const devMode = process.env.NODE_ENV !== 'production';
+
 module.exports = {
-    entry: path.resolve(__dirname, './src/index.js'),
+    entry: path.resolve(__dirname, './src/index.tsx'),
     output: {
         filename: 'bundle.js',
         path: path.resolve(__dirname, './dist'),
@@ -16,7 +18,24 @@ module.exports = {
     },
     mode: 'development',
     resolve: {
-        extensions: [".ts", ".tsx", ".js", ".json"]
+        // What directories should be searched when resolving modules
+        modules: [
+            'node_modules',
+            './src',
+        ],
+        // Automatically resolve certain extensions (Ex. import 'folder/name(.ext)')
+        extensions: [
+            '.ts',
+            '.tsx',
+            '.js',
+            '.jsx',
+            '.json',
+            '.css',
+            '.scss',
+        ],
+        alias: {
+            "@Root": path.resolve(__dirname, "src"),
+        }
     },
     module: {
         rules: [
@@ -32,9 +51,26 @@ module.exports = {
                use: ['style-loader', 'css-loader', 'sass-loader']
             },
             {
-               test: /\.(png|jpg|svg|gif)$/,
-               loader:'url-loader?limit=100000',
-            }
+                test: /\.(png|jpe?g|gif|svg|webp|tiff)(\?.*)?$/,
+                use: [
+                  { loader: 'url-loader', options: { limit: 10000, name: '[name].[ext]' } },
+                  { loader: 'image-webpack-loader', options: { disable: devMode } },
+                ],
+            },
+            // Use url-loader to load font related files
+            {
+                test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
+                use: [
+                { loader: 'url-loader', options: { limit: 10000, name: '[name].[ext]' } },
+                ],
+            },
+            // Use url-loader to load audio related files
+            {
+                test: /\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/,
+                use: [
+                { loader: 'url-loader', options: { limit: 10000, name: '[name].[ext]' } },
+                ],
+            },
         ]
     },
     plugins: [

@@ -1,12 +1,14 @@
 import axios from 'axios';
 
-import { IActionAddNoteRequested, IActionEditNoteRequested, IActionFetchNoteRequested, IActionRemoveNoteRequested } from './types';
+// import { 
+//   IActionFetchAllRisksRequested,
+// } from './types';
 
-const notesUrl = 'api/v1/notes';
+const risksUrl = 'api/v1/risks';
 
-export default class NotesAPI {
+export default class RisksAPI {
   public static fetchAll() {
-    return axios.get(`${notesUrl}`, {
+    return axios.get(`${risksUrl}`, {
       headers: {
         Accept: 'application/json',
       },
@@ -20,65 +22,65 @@ export default class NotesAPI {
     });
   }
 
-  public static fetch(payload: IActionFetchNoteRequested['payload']) {
-    return axios.get(`${notesUrl}/${payload.id}`, {
-      headers: {
-        Accept: 'application/json',
-      },
-    }).then((res) => {
-      return res.data;
-    }).catch((err) => {
-      if (err.response != null) {
-        throw Error(err.response.data.error.message);
-      }
-      throw Error(err);
-    });
-  }
+  // public static fetch(payload: IActionFetchAllRisksRequested['payload']) {
+  //   return axios.get(`${notesUrl}/${payload.id}`, {
+  //     headers: {
+  //       Accept: 'application/json',
+  //     },
+  //   }).then((res) => {
+  //     return res.data;
+  //   }).catch((err) => {
+  //     if (err.response != null) {
+  //       throw Error(err.response.data.error.message);
+  //     }
+  //     throw Error(err);
+  //   });
+  // }
 
-  public static add(payload: IActionAddNoteRequested['payload']) {
-    return axios.post(notesUrl, payload, {
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json',
-      },
-    }).then((res) => {
-      return res.data;
-    }).catch((err) => {
-      if (err.response != null) {
-        throw Error(err.response.data.error.message);
-      }
-      throw Error(err);
-    });
-  }
+  // public static add(payload: IActionAddNoteRequested['payload']) {
+  //   return axios.post(notesUrl, payload, {
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //       'Accept': 'application/json',
+  //     },
+  //   }).then((res) => {
+  //     return res.data;
+  //   }).catch((err) => {
+  //     if (err.response != null) {
+  //       throw Error(err.response.data.error.message);
+  //     }
+  //     throw Error(err);
+  //   });
+  // }
 
-  public static edit(payload: IActionEditNoteRequested['payload']) {
-    return axios.put(`${notesUrl}/${payload.id}`, payload, {
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json',
-      },
-    }).then((res) => {
-      return res.data;
-    }).catch((err) => {
-      if (err.response != null) {
-        throw Error(err.response.data.error.message);
-      }
-      throw Error(err);
-    });
-  }
+  // public static edit(payload: IActionEditNoteRequested['payload']) {
+  //   return axios.put(`${notesUrl}/${payload.id}`, payload, {
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //       'Accept': 'application/json',
+  //     },
+  //   }).then((res) => {
+  //     return res.data;
+  //   }).catch((err) => {
+  //     if (err.response != null) {
+  //       throw Error(err.response.data.error.message);
+  //     }
+  //     throw Error(err);
+  //   });
+  // }
 
-  public static remove(payload: IActionRemoveNoteRequested['payload']) {
-    return axios.delete(`${notesUrl}/${payload.id}`, {
-      headers: {
-        Accept: 'application/json',
-      },
-    }).then((res) => {
-      return res.data;
-    }).catch((err) => {
-      if (err.response != null) {
-        throw Error(err.response.data.error.message);
-      }
-      throw Error(err);
-    });
-  }
+  // public static remove(payload: IActionRemoveNoteRequested['payload']) {
+  //   return axios.delete(`${notesUrl}/${payload.id}`, {
+  //     headers: {
+  //       Accept: 'application/json',
+  //     },
+  //   }).then((res) => {
+  //     return res.data;
+  //   }).catch((err) => {
+  //     if (err.response != null) {
+  //       throw Error(err.response.data.error.message);
+  //     }
+  //     throw Error(err);
+  //   });
+  // }
 }

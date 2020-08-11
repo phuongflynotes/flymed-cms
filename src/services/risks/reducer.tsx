@@ -1,33 +1,33 @@
 import { List, Record } from 'immutable';
 
-import { FETCH_ALL_NOTES_FAILURE, FETCH_ALL_NOTES_REQUESTED, FETCH_ALL_NOTES_SUCCESS } from './constants';
-import { IActionsNotes, INote, INotesState, INotesStateRecord } from './types';
+import { FETCH_ALL_RISKS_REQUESTED, FETCH_ALL_RISKS_SUCCESS, FETCH_ALL_RISKS_FAILURE } from './constants';
+import { IActionsRisks, IRisk, IRisksState, IRisksStateRecord } from './types';
 
-export const getNotesStateRecord = (state: INotesState): INotesStateRecord => {
-  class NotesStateRecord extends Record(state) implements INotesStateRecord {}
-  return new NotesStateRecord();
+export const getRisksStateRecord = (state: IRisksState): IRisksStateRecord => {
+  class RisksStateRecord extends Record(state) implements IRisksStateRecord {}
+  return new RisksStateRecord();
 };
 
-const initialState = getNotesStateRecord({
-  notes: List<INote>(),
+const initialState = getRisksStateRecord({
+  risks: List<IRisk>(),
   loading: false,
   error: '',
 });
 
-export default (state: INotesStateRecord = initialState, action: IActionsNotes): INotesStateRecord => {
+export default (state: IRisksStateRecord = initialState, action: IActionsRisks): IRisksStateRecord => {
   switch (action.type) {
-    case FETCH_ALL_NOTES_REQUESTED:
+    case FETCH_ALL_RISKS_REQUESTED:
       return state.set('loading', true);
-    case FETCH_ALL_NOTES_SUCCESS:
-      const noteList: INote[] = [];
-      action.payload.data.notes.forEach((note: INote) => {
-        noteList.push({
-          id: note.id,
-          content: note.content,
+    case FETCH_ALL_RISKS_SUCCESS:
+      const riskList: IRisk[] = [];
+      action.payload.data.notes.forEach((data: IRisk) => {
+        riskList.push({
+          id: data.id,
+          name: data.name,
         });
       });
-      return state.clear().set('notes', List(noteList));
-    case FETCH_ALL_NOTES_FAILURE:
+      return state.clear().set('risks', List(riskList));
+    case FETCH_ALL_RISKS_FAILURE:
       return state.clear().set('error', action.payload.error);
     default:
       return state;

@@ -34,7 +34,7 @@ const DashboardPage = lazy(() => import(
 */
 '@Root/pages/DashboardPage'));
 
-export default (
+const App = () => (
   <Fragment>
     <Suspense fallback={<HeaderContentLoader />}>
       <Header />
@@ -54,3 +54,5 @@ export default (
     </Suspense>
   </Fragment>
 );
+
+export default App;

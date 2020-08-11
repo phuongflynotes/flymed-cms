@@ -1,6 +1,6 @@
 import React from 'react';
 
-const RiskPage = (props:any) => {
+const RiskPage = () => {
     return (
         <div className="container">
             <h1>Risk Page</h1>

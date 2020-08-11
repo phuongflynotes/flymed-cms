@@ -1,6 +1,6 @@
 import React from 'react';
 
-const NotFoundPage = (props:any) => {
+const NotFoundPage = () => {
     return (
         <div className="container">
             <h1>Page Not Found</h1>

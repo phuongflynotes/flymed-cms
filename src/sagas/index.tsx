@@ -1,9 +1,9 @@
-import { all, fork } from 'redux-saga/effects';
+import { all } from 'redux-saga/effects';
 
-import {watchHome} from '@Root/components/Users/UserManagement/sagas';
+import risks from '@Root/services/risks/sagas';
 
 export default function* rootSaga() {
   yield all([
-    fork(watchHome),
+    risks(),
   ]);
 }

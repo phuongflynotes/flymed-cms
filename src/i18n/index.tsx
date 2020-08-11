@@ -11,6 +11,9 @@ export default i18n
   .use(initReactI18next)
   .init({
     debug: !isProduction,
+    backend: {
+      loadPath: './locales/{{lng}}/{{ns}}.json',
+    },
     whitelist: ['en', 'zh', 'jp'],
     fallbackLng: 'en',
     fallbackNS: 'common',
@@ -24,4 +27,4 @@ export default i18n
     if (err) {
       return console.error('Load i18n instance failed.', err);
     }
-  });
+});

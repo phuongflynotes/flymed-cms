@@ -30,4 +30,8 @@ const render = (Component:any) => (
 render(App);
 
 // Webpack Hot Module Replacement API
-if ((module as any).hot) (module as any).hot.accept('@Root/pages/App', () => render(App));
+if ((module as any).hot) {
+	(module as any).hot.accept('@Root/pages/App', () => {
+		render(App)
+	});
+}
