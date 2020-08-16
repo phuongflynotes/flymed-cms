@@ -1,9 +1,28 @@
-import React from 'react';
+import React, {useEffect} from 'react';
+import {useDispatch} from 'react-redux';
 
-const HomePage = () => {
+import SidebarMain from '@Root/components/SidebarMain';
+import SidebarCategories from '@Root/components/SidebarCategories';
+import {fetchAllProcedures} from '@Root/services/procedures/actions';
+// import {IProceduresState} from '@Root/services/procedures/types';
+
+import Content from './Content';
+import useStyles from './style';
+
+const HomePage = (props: any) => {
+    const classes = useStyles();
+    // const proceduresState = useSelector((state:IProceduresState) => state.procedures);
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(fetchAllProcedures({payload: {}}));
+    }, []);
+
     return (
-        <div className="container">
-            <h1>Home Page</h1>
+        <div className={`${classes.homeContainer} flex-row`}>
+            <SidebarMain {...props} />
+            <SidebarCategories {...props} />
+            <Content {...props} />
         </div>
     )
 }

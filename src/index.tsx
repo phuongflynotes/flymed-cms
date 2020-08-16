@@ -8,6 +8,7 @@ import '@Root/i18n';
 
 import App from "@Root/pages/App";
 import { isProduction } from '@Root/utils';
+import '@Root/assets/scss/styles.scss';
 
 // Webpack offline plugin
 if (isProduction) {

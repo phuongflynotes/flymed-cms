@@ -1,12 +1,16 @@
 import { combineReducers } from 'redux';
 
 import riskReducer from '@Root/services/risks/reducer';
+import procedureReducer from '@Root/services/procedures/reducer';
 import {IRisksState} from '@Root/services/risks/types';
+import {IProceduresState} from '@Root/services/procedures/types';
 
 export const rootReducer = combineReducers({
-  dataRisks: riskReducer,
+  risksState: riskReducer,
+  proceduresState: procedureReducer,
 });
 
 export interface ApplicationState {
-    dataHome: IRisksState;
+    dataRisk: IRisksState;
+    dataProcedure: IProceduresState
 }

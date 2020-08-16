@@ -1,10 +1,8 @@
 import axios from 'axios';
 
-// import { 
-//   IActionFetchAllRisksRequested,
-// } from './types';
+import {API_URL} from '@Root/private/constants';
 
-const risksUrl = 'api/v1/risks';
+const risksUrl = `${API_URL}/risk`;
 
 export default class RisksAPI {
   public static fetchAll() {

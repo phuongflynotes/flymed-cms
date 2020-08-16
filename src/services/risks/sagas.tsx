@@ -19,7 +19,7 @@ function* sagaAsyncCallGenerator(action: IAsyncCall, api: (payload: any) => Prom
   yield takeEvery(action.REQUESTED, asyncHandler, action, api);
 }
 
-export default function* rootSaga() {
+export default function* riskWatchers() {
   yield all([
     sagaAsyncCallGenerator(ASYNC_FETCH_ALL_RISKS, RisksAPI.fetchAll),
     // sagaAsyncCallGenerator(ASYNC_FETCH_NOTE, NotesAPI.fetch),

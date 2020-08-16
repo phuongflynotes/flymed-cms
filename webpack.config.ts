@@ -54,7 +54,7 @@ module.exports = {
                 test: /\.(png|jpe?g|gif|svg|webp|tiff)(\?.*)?$/,
                 use: [
                   { loader: 'url-loader', options: { limit: 10000, name: '[name].[ext]' } },
-                  { loader: 'image-webpack-loader', options: { disable: devMode } },
+                  { loader: 'image-webpack-loader', options: { disable: devMode, esModule: false } },
                 ],
             },
             // Use url-loader to load font related files
@@ -80,6 +80,10 @@ module.exports = {
     devServer: {
         contentBase: path.resolve(__dirname, './dist'),
         historyApiFallback: true,
-        hot: true
+        hot: true,
+        headers: {
+            "Access-Control-Allow-Origin": "*",
+            // https: true
+        }
     }
 }

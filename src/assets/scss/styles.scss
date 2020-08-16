@@ -1,0 +1,51 @@
+@import "fonts.scss";
+
+* {
+    margin: 0;
+    padding: 0;
+}
+html {
+    height: 100%;
+}
+body {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    display: flex;
+    min-height: 100%;
+}
+#root {
+    flex: 1;
+}
+ul, li {
+    list-style-type: none;
+}
+a {
+    text-decoration: none;
+}
+h6 {
+    font-size: 0.8750em;
+}
+h5 {
+    font-size: 1em;
+}
+h4 {
+    font-size: 1.125em;
+}
+h3 {
+    font-size: 1.25em;
+}
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+.flex-row {
+    display: flex;
+    flex-direction: row;
+}
+.border-right {
+    border-right: 1px solid #EEEEEE;
+}
+.full-height {
+    overflow-y: scroll;
+    margin-bottom: -5000px;
+}

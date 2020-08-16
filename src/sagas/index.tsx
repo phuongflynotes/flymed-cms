@@ -1,9 +1,11 @@
-import { all } from 'redux-saga/effects';
+import { all, fork } from 'redux-saga/effects';
 
-import risks from '@Root/services/risks/sagas';
+import riskWatchers from '@Root/services/risks/sagas';
+import procedureWatchers from '@Root/services/procedures/sagas';
 
 export default function* rootSaga() {
   yield all([
-    risks(),
+    fork(riskWatchers),
+    fork(procedureWatchers),
   ]);
 }
