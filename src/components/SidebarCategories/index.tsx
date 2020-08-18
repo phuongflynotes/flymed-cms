@@ -88,7 +88,7 @@ const SidebarCategories = () => {
             <h3 className={classes.logo}>Flymed</h3>
             <div className={`${classes.blockContainer}`}>
                 <h6 className={classes.header}>Language</h6>
-                <FormControl variant="outlined" className={classes.formControl}>
+                <FormControl variant="outlined" className={classes.formControl} size="small">
                     <Select
                         native
                         value={languages}

@@ -1,2 +1,2 @@
 
-export { BodyContentLoader, HeaderContentLoader, FooterContentLoader } from './contentLoader';
+export { BodyContentLoader, HeaderContentLoader, FooterContentLoader, ContentMultipleListLoader } from './contentLoader';

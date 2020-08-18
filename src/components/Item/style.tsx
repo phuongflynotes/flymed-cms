@@ -69,18 +69,26 @@ const useStyles = makeStyles((theme) => ({
         fontSize: "14px",
         fontFamily: "Poppins-Medium",
         textAlign: "left",
-        lineHeight: "187.5%"
+        lineHeight: "187.5%",
     },
     groupIcon: {
         marginLeft: "18px",
-        '& a': {
+        padding: "9px",
+        backgroundColor: COLORS.whiteColor,
+        borderRadius: "100%",
+        boxShadow: "0px 1px 5px rgba(0, 0, 0, 0.09)",
+        '& button': {
             width: "16px",
             height: "16px",
-            padding: "9px",
-            backgroundColor: COLORS.whiteColor,
-            borderRadius: "100%",
-            boxShadow: "0px 1px 5px rgba(0, 0, 0, 0.09)",
             display: "block",
+            border: 0,
+            backgroundColor: "transparent",
+            '&:hover': {
+                cursor: "pointer",
+            },
+            '&:focus': {
+                outline: "none",
+            },
 
             '& img': {
                 width: "100%",
@@ -93,7 +101,7 @@ const useStyles = makeStyles((theme) => ({
         transition: theme.transitions.create('transform', {
             duration: theme.transitions.duration.shortest,
         }),
-        color: COLORS.grayishBlue,
+        color: COLORS.grayishBlueColor,
         '& span': {
             fontSize: "12px",
             fontFamily: "Poppins-Regular",
@@ -110,7 +118,7 @@ const useStyles = makeStyles((theme) => ({
         backgroundColor: "rgba(58, 183, 123, 0.8) !important"
     },
     iOSChecked: {
-        color: `${COLORS.brightGreen} !important`,
+        color: `${COLORS.brightGreenColor} !important`,
     },
     iOSSmall: {
         padding: "4px"

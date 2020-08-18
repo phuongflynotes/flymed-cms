@@ -1,18 +1,18 @@
 import { List, Record } from 'immutable';
 
 import { 
-  FETCH_ALL_PROCEDURES_REQUESTED,
-  FETCH_ALL_PROCEDURES_SUCCESS,
-  FETCH_ALL_PROCEDURES_FAILURE,
-  ADD_PROCEDURES_REQUESTED,
-  ADD_PROCEDURES_SUCCESS,
-  ADD_PROCEDURES_FAILURE,
-  EDIT_PROCEDURES_REQUESTED,
-  EDIT_PROCEDURES_SUCCESS,
-  EDIT_PROCEDURES_FAILURE,
-  FILTER_PROCEDURES_REQUESTED,
-  FILTER_PROCEDURES_SUCCESS,
-  FILTER_PROCEDURES_FAILURE,
+  FETCH_ALL_BENEFITS_REQUESTED,
+  FETCH_ALL_BENEFITS_SUCCESS,
+  FETCH_ALL_BENEFITS_FAILURE,
+  ADD_BENEFITS_REQUESTED,
+  ADD_BENEFITS_SUCCESS,
+  ADD_BENEFITS_FAILURE,
+  EDIT_BENEFITS_REQUESTED,
+  EDIT_BENEFITS_SUCCESS,
+  EDIT_BENEFITS_FAILURE,
+  FILTER_BENEFITS_REQUESTED,
+  FILTER_BENEFITS_SUCCESS,
+  FILTER_BENEFITS_FAILURE,
  } from './constants';
 
 // Notes state
@@ -35,11 +35,11 @@ export interface IProceduresStateRecord extends Record<IProceduresState>, IProce
 
 // Procedures actions
 export interface IActionFetchAllProceduresRequested {
-  type: typeof FETCH_ALL_PROCEDURES_REQUESTED;
+  type: typeof FETCH_ALL_BENEFITS_REQUESTED;
   payload: any;
 }
 export interface IActionFetchAllProceduresSuccess {
-  type: typeof FETCH_ALL_PROCEDURES_SUCCESS;
+  type: typeof FETCH_ALL_BENEFITS_SUCCESS;
   payload: {
     data: any,
     currentPage: number,
@@ -47,24 +47,24 @@ export interface IActionFetchAllProceduresSuccess {
   };
 }
 export interface IActionFetchAllProceduresFailure {
-  type: typeof FETCH_ALL_PROCEDURES_FAILURE;
+  type: typeof FETCH_ALL_BENEFITS_FAILURE;
   payload: {
     error: string,
   };
 }
 //Handle Add
 export interface IActionAddProceduresRequested {
-  type: typeof ADD_PROCEDURES_REQUESTED;
+  type: typeof ADD_BENEFITS_REQUESTED;
   payload: any;
 }
 export interface IActionAddProceduresSuccess {
-  type: typeof ADD_PROCEDURES_SUCCESS;
+  type: typeof ADD_BENEFITS_SUCCESS;
   payload: {
     data: any,
   };
 }
 export interface IActionAddProceduresFailure {
-  type: typeof ADD_PROCEDURES_FAILURE;
+  type: typeof ADD_BENEFITS_FAILURE;
   payload: {
     error: string,
   };
@@ -72,34 +72,34 @@ export interface IActionAddProceduresFailure {
 
 //Handle Edit
 export interface IActionEditProceduresRequested {
-  type: typeof EDIT_PROCEDURES_REQUESTED;
+  type: typeof EDIT_BENEFITS_REQUESTED;
   payload: any;
 }
 export interface IActionEditProceduresSuccess {
-  type: typeof EDIT_PROCEDURES_SUCCESS;
+  type: typeof EDIT_BENEFITS_SUCCESS;
   payload: {
     data: any,
   };
 }
 export interface IActionEditProceduresFailure {
-  type: typeof EDIT_PROCEDURES_FAILURE;
+  type: typeof EDIT_BENEFITS_FAILURE;
   payload: {
     error: string,
   };
 }
 //Handle Filter and Pagination
 export interface IActionFilterProceduresRequested {
-  type: typeof FILTER_PROCEDURES_REQUESTED;
+  type: typeof FILTER_BENEFITS_REQUESTED;
   payload: any;
 }
 export interface IActionFilterProceduresSuccess {
-  type: typeof FILTER_PROCEDURES_SUCCESS;
+  type: typeof FILTER_BENEFITS_SUCCESS;
   payload: {
     data: any,
   };
 }
 export interface IActionFilterProceduresFailure {
-  type: typeof FILTER_PROCEDURES_FAILURE;
+  type: typeof FILTER_BENEFITS_FAILURE;
   payload: {
     error: string,
   };

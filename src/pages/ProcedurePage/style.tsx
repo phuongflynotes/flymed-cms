@@ -5,7 +5,7 @@ import {
 import { COLORS } from '@Root/config/theme';
 
 const useStyles = makeStyles(() => ({
-    homeContainer: {
+    container: {
         height: "100vh",
     },
     logo: {
@@ -28,7 +28,7 @@ const useStyles = makeStyles(() => ({
         display: "flex",
     },
     filterLabel: {
-        color: COLORS.silverFoil
+        color: COLORS.silverFoilColor
     },
     btnAdd: {
         backgroundColor: "#3AB77B",

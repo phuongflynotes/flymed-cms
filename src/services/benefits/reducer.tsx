@@ -1,12 +1,12 @@
 import { List, Record } from 'immutable';
 
 import { 
-  FETCH_ALL_PROCEDURES_REQUESTED, 
-  FETCH_ALL_PROCEDURES_SUCCESS, 
-  FETCH_ALL_PROCEDURES_FAILURE,
-  FILTER_PROCEDURES_REQUESTED,
-  FILTER_PROCEDURES_SUCCESS,
-  FILTER_PROCEDURES_FAILURE
+  FETCH_ALL_BENEFITS_REQUESTED, 
+  FETCH_ALL_BENEFITS_SUCCESS, 
+  FETCH_ALL_BENEFITS_FAILURE,
+  FILTER_BENEFITS_REQUESTED,
+  FILTER_BENEFITS_SUCCESS,
+  FILTER_BENEFITS_FAILURE
 } from './constants';
 import { IActionsProcedures, IProcedure, IProceduresState, IProceduresStateRecord } from './types';
 
@@ -27,12 +27,12 @@ const initialState = getProceduresStateRecord({
 
 export default (state: IProceduresStateRecord = initialState, action: IActionsProcedures): IProceduresStateRecord => {
   switch (action.type) {
-    case FILTER_PROCEDURES_REQUESTED:
+    case FILTER_BENEFITS_REQUESTED:
       return state.merge({'loading': true, ...action.payload});
-    case FETCH_ALL_PROCEDURES_REQUESTED:
+    case FETCH_ALL_BENEFITS_REQUESTED:
       return state.set('loading', true);
-    case FETCH_ALL_PROCEDURES_SUCCESS:
-    case FILTER_PROCEDURES_SUCCESS:
+    case FETCH_ALL_BENEFITS_SUCCESS:
+    case FILTER_BENEFITS_SUCCESS:
       const { data, currentPage, totalPages, searchQuery } = action.payload?.data;
       const procedureList: IProcedure[] = data;
       return state.merge({
@@ -42,8 +42,8 @@ export default (state: IProceduresStateRecord = initialState, action: IActionsPr
         'searchQuery': searchQuery,
         'procedures': List(procedureList)
       });
-    case FETCH_ALL_PROCEDURES_FAILURE:
-    case FILTER_PROCEDURES_FAILURE:
+    case FETCH_ALL_BENEFITS_FAILURE:
+    case FILTER_BENEFITS_FAILURE:
       return state.clear().set('loading', false).set('error', action.payload.error);
     default:
       return state;

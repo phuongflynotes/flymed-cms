@@ -38,7 +38,7 @@ const useStyles = makeStyles((theme) => ({
     },
     menuButton: {
         marginRight: theme.spacing(2),
-        backgroundColor: COLORS.whiteSmoke,
+        backgroundColor: COLORS.whiteSmokeColor,
         borderRadius: "100%",
     },
     title: {

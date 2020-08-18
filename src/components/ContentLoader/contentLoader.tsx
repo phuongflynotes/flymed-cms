@@ -1,5 +1,6 @@
 import React from 'react';
-import ContentLoader from 'react-content-loader';
+import ContentLoader, {List} from 'react-content-loader';
+import Container from '@material-ui/core/Container';
 
 import './contentLoader.scss';
 
@@ -41,3 +42,11 @@ export const FooterContentLoader = () => (
     <rect x='0' y='0' width='2500' height='400' />
   </ContentLoader>
 );
+
+export const ContentMultipleListLoader = () => (
+  <Container maxWidth="sm">
+    <List />
+    <List />
+    <List />
+  </Container>
+)

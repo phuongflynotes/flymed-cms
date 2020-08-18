@@ -3,19 +3,26 @@ import * as ReactDOM from "react-dom";
 import OfflinePluginRuntime from "offline-plugin/runtime";
 import { Provider } from "react-redux";
 import { AppContainer } from 'react-hot-loader';
+import { createBrowserHistory } from 'history';
 
 import '@Root/i18n';
 
 import App from "@Root/pages/App";
 import { isProduction } from '@Root/utils';
 import '@Root/assets/scss/styles.scss';
+import configureStore from '@Root/store';
 
 // Webpack offline plugin
 if (isProduction) {
 	OfflinePluginRuntime.install();
 }
 
-import {store} from './configureStore';
+const initialState: any = {};
+
+// Create browser history
+const history = createBrowserHistory();
+// Configure store
+const store = configureStore(history, initialState);
 
 const render = (Component:any) => (
 	ReactDOM.render(
