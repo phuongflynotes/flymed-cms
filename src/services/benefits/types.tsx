@@ -16,8 +16,8 @@ import {
  } from './constants';
 
 // Notes state
-export interface IProceduresState {
-  procedures: List<IProcedure>;
+export interface IBenefitsState {
+  benefits: List<IBenefit>;
   currentPage: number,
   totalPages: number,
   searchQuery: string,
@@ -25,20 +25,20 @@ export interface IProceduresState {
   loading: boolean;
   error: string;
 }
-export interface IProcedure {
+export interface IBenefit {
   id: number;
   name: string;
   description: string;
-  procedure_status: boolean;
+  benefit_status: boolean;
 }
-export interface IProceduresStateRecord extends Record<IProceduresState>, IProceduresState {}
+export interface IBenefitsStateRecord extends Record<IBenefitsState>, IBenefitsState {}
 
-// Procedures actions
-export interface IActionFetchAllProceduresRequested {
+// Benefits actions
+export interface IActionFetchAllBenefitsRequested {
   type: typeof FETCH_ALL_BENEFITS_REQUESTED;
   payload: any;
 }
-export interface IActionFetchAllProceduresSuccess {
+export interface IActionFetchAllBenefitsSuccess {
   type: typeof FETCH_ALL_BENEFITS_SUCCESS;
   payload: {
     data: any,
@@ -46,24 +46,24 @@ export interface IActionFetchAllProceduresSuccess {
     totalPages: number,
   };
 }
-export interface IActionFetchAllProceduresFailure {
+export interface IActionFetchAllBenefitsFailure {
   type: typeof FETCH_ALL_BENEFITS_FAILURE;
   payload: {
     error: string,
   };
 }
 //Handle Add
-export interface IActionAddProceduresRequested {
+export interface IActionAddBenefitsRequested {
   type: typeof ADD_BENEFITS_REQUESTED;
   payload: any;
 }
-export interface IActionAddProceduresSuccess {
+export interface IActionAddBenefitsSuccess {
   type: typeof ADD_BENEFITS_SUCCESS;
   payload: {
     data: any,
   };
 }
-export interface IActionAddProceduresFailure {
+export interface IActionAddBenefitsFailure {
   type: typeof ADD_BENEFITS_FAILURE;
   payload: {
     error: string,
@@ -71,47 +71,47 @@ export interface IActionAddProceduresFailure {
 }
 
 //Handle Edit
-export interface IActionEditProceduresRequested {
+export interface IActionEditBenefitsRequested {
   type: typeof EDIT_BENEFITS_REQUESTED;
   payload: any;
 }
-export interface IActionEditProceduresSuccess {
+export interface IActionEditBenefitsSuccess {
   type: typeof EDIT_BENEFITS_SUCCESS;
   payload: {
     data: any,
   };
 }
-export interface IActionEditProceduresFailure {
+export interface IActionEditBenefitsFailure {
   type: typeof EDIT_BENEFITS_FAILURE;
   payload: {
     error: string,
   };
 }
 //Handle Filter and Pagination
-export interface IActionFilterProceduresRequested {
+export interface IActionFilterBenefitsRequested {
   type: typeof FILTER_BENEFITS_REQUESTED;
   payload: any;
 }
-export interface IActionFilterProceduresSuccess {
+export interface IActionFilterBenefitsSuccess {
   type: typeof FILTER_BENEFITS_SUCCESS;
   payload: {
     data: any,
   };
 }
-export interface IActionFilterProceduresFailure {
+export interface IActionFilterBenefitsFailure {
   type: typeof FILTER_BENEFITS_FAILURE;
   payload: {
     error: string,
   };
 }
 
-export type IActionsProcedures
-  = IActionFetchAllProceduresRequested
-   | IActionFetchAllProceduresSuccess 
-   | IActionFetchAllProceduresFailure
-   | IActionAddProceduresRequested
-   | IActionAddProceduresSuccess
-   | IActionAddProceduresFailure
-   | IActionFilterProceduresRequested
-   | IActionFilterProceduresSuccess
-   | IActionFilterProceduresFailure;
+export type IActionsBenefits
+  = IActionFetchAllBenefitsRequested
+   | IActionFetchAllBenefitsSuccess 
+   | IActionFetchAllBenefitsFailure
+   | IActionAddBenefitsRequested
+   | IActionAddBenefitsSuccess
+   | IActionAddBenefitsFailure
+   | IActionFilterBenefitsRequested
+   | IActionFilterBenefitsSuccess
+   | IActionFilterBenefitsFailure;

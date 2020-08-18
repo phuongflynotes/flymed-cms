@@ -5,28 +5,28 @@ import {
   FILTER_BENEFITS_REQUESTED
 } from './constants';
 import {
-  IActionFetchAllProceduresRequested,
-  IActionAddProceduresRequested,
-  IActionEditProceduresRequested,
-  IActionFilterProceduresRequested
+  IActionFetchAllBenefitsRequested,
+  IActionAddBenefitsRequested,
+  IActionEditBenefitsRequested,
+  IActionFilterBenefitsRequested
 } from './types';
 
-export const fetchAllProcedures = (payload: IActionFetchAllProceduresRequested['payload']): IActionFetchAllProceduresRequested => ({
+export const fetchAllBenefits = (payload: IActionFetchAllBenefitsRequested['payload']): IActionFetchAllBenefitsRequested => ({
   type: FETCH_ALL_BENEFITS_REQUESTED,
   payload,
 });
 
-export const handleAddProcedures = (payload: IActionAddProceduresRequested['payload']): IActionAddProceduresRequested => ({
+export const handleAddBenefits = (payload: IActionAddBenefitsRequested['payload']): IActionAddBenefitsRequested => ({
   type: ADD_BENEFITS_REQUESTED,
   payload,
 });
 
-export const handleEditProcedures = (payload: IActionEditProceduresRequested['payload']): IActionEditProceduresRequested => ({
+export const handleEditBenefits = (payload: IActionEditBenefitsRequested['payload']): IActionEditBenefitsRequested => ({
   type: EDIT_BENEFITS_REQUESTED,
   payload,
 });
 
-export const handleFilter = (payload: IActionFilterProceduresRequested['payload']): IActionFilterProceduresRequested => ({
+export const handleFilter = (payload: IActionFilterBenefitsRequested['payload']): IActionFilterBenefitsRequested => ({
   type: FILTER_BENEFITS_REQUESTED,
   payload,
 });

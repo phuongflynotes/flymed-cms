@@ -8,15 +8,15 @@ import {
   FILTER_BENEFITS_SUCCESS,
   FILTER_BENEFITS_FAILURE
 } from './constants';
-import { IActionsProcedures, IProcedure, IProceduresState, IProceduresStateRecord } from './types';
+import { IActionsBenefits, IBenefit, IBenefitsState, IBenefitsStateRecord } from './types';
 
-export const getProceduresStateRecord = (state: IProceduresState): IProceduresStateRecord => {
-  class ProceduresStateRecord extends Record(state) implements IProceduresStateRecord {}
-  return new ProceduresStateRecord();
+export const getBenefitsStateRecord = (state: IBenefitsState): IBenefitsStateRecord => {
+  class BenefitsStateRecord extends Record(state) implements IBenefitsStateRecord {}
+  return new BenefitsStateRecord();
 };
 
-const initialState = getProceduresStateRecord({
-  procedures: List<IProcedure>(),
+const initialState = getBenefitsStateRecord({
+  benefits: List<IBenefit>(),
   currentPage: 1,
   totalPages: 1,
   searchQuery: '',
@@ -25,7 +25,7 @@ const initialState = getProceduresStateRecord({
   error: '',
 });
 
-export default (state: IProceduresStateRecord = initialState, action: IActionsProcedures): IProceduresStateRecord => {
+export default (state: IBenefitsStateRecord = initialState, action: IActionsBenefits): IBenefitsStateRecord => {
   switch (action.type) {
     case FILTER_BENEFITS_REQUESTED:
       return state.merge({'loading': true, ...action.payload});
@@ -34,13 +34,14 @@ export default (state: IProceduresStateRecord = initialState, action: IActionsPr
     case FETCH_ALL_BENEFITS_SUCCESS:
     case FILTER_BENEFITS_SUCCESS:
       const { data, currentPage, totalPages, searchQuery } = action.payload?.data;
-      const procedureList: IProcedure[] = data;
+      console.log('data====', action.payload)
+      const benefitList: IBenefit[] = data;
       return state.merge({
         'loading': false,
         'currentPage': parseInt(currentPage),
         'totalPages': parseInt(totalPages),
         'searchQuery': searchQuery,
-        'procedures': List(procedureList)
+        'benefits': List(benefitList)
       });
     case FETCH_ALL_BENEFITS_FAILURE:
     case FILTER_BENEFITS_FAILURE:

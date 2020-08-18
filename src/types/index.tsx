@@ -2,6 +2,7 @@ import { Record } from 'immutable';
 import { RouterState } from 'connected-react-router';
 
 import { IRisksStateRecord } from '@Root/services/risks/types';
+import { IBenefitsStateRecord } from '@Root/services/benefits/types';
 import { IProceduresStateRecord } from '@Root/services/procedures/types';
 import { IModalState } from '@Root/services/modalMain/types';
 import { IWaitingState } from '@Root/services/waiting/types';
@@ -10,6 +11,7 @@ import { IWaitingState } from '@Root/services/waiting/types';
 export interface IGlobalState {
   router: RouterState;
   risksState: IRisksStateRecord;
+  benefitsState: IBenefitsStateRecord;
   proceduresState: IProceduresStateRecord;
   modalMainState: IModalState;
   waitingState: IWaitingState;

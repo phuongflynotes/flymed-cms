@@ -3,35 +3,35 @@ import {useDispatch, useSelector} from 'react-redux';
 
 import SidebarMain from '@Root/components/SidebarMain';
 import SidebarCategories from '@Root/components/SidebarCategories';
-import {fetchAllRisks} from '@Root/services/risks/actions';
+import {fetchAllBenefits} from '@Root/services/benefits/actions';
 import { IGlobalState } from '@Root/types';
 
 import Content from './Content';
 import useStyles from './style';
 
-const RiskPage = (props: any) => {
+const BenefitPage = (props: any) => {
     const classes = useStyles();
-    const risksState = useSelector((state:IGlobalState) => state.risksState);
+    const benefitsState = useSelector((state:IGlobalState) => state.benefitsState);
     const dispatch = useDispatch();
-    const risks = risksState.get('risks');
-    const totalPages = risksState.get('totalPages');
-    const currentPage = risksState.get('currentPage');
-    const loading = risksState.get('loading');
-    const searchQuery = risksState.get('searchQuery');
+    const benefits = benefitsState.get('benefits');
+    const totalPages = benefitsState.get('totalPages');
+    const currentPage = benefitsState.get('currentPage');
+    const loading = benefitsState.get('loading');
+    const searchQuery = benefitsState.get('searchQuery');
 
     useEffect(() => {
-        dispatch(fetchAllRisks({payload: {}}));
+        dispatch(fetchAllBenefits({payload: {}}));
     }, []);
 
     return (
         <div className={`${classes.container} flex-row`}>
             <SidebarMain {...props} />
             <SidebarCategories {...props} />
-            <Content risks={risks} totalPages={totalPages} loading={loading}
+            <Content benefits={benefits} totalPages={totalPages} loading={loading}
                 currentPage={currentPage} searchQuery={searchQuery} {...props} 
             />
         </div>
     )
 }
 
-export default RiskPage;
+export default BenefitPage;

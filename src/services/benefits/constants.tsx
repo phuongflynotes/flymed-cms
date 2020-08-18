@@ -10,7 +10,7 @@ export const ASYNC_FETCH_ALL_BENEFITS: IAsyncCall = {
   FAILURE: FETCH_ALL_BENEFITS_FAILURE,
 };
 
-//defined add procedure
+//defined add benefit
 export const ADD_BENEFITS_REQUESTED = 'ADD_BENEFITS/REQUESTED';
 export const ADD_BENEFITS_SUCCESS = 'ADD_BENEFITS/SUCCESS';
 export const ADD_BENEFITS_FAILURE = 'ADD_BENEFITS/FAILURE';
@@ -21,7 +21,7 @@ export const ASYNC_ADD_BENEFITS: IAsyncCall = {
   FAILURE: ADD_BENEFITS_FAILURE,
 };
 
-//defined edit procedure
+//defined edit benefit
 export const EDIT_BENEFITS_REQUESTED = 'EDIT_BENEFITS/REQUESTED';
 export const EDIT_BENEFITS_SUCCESS = 'EDIT_BENEFITS/SUCCESS';
 export const EDIT_BENEFITS_FAILURE = 'EDIT_BENEFITS/FAILURE';

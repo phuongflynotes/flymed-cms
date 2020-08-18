@@ -2,17 +2,17 @@ import axios from 'axios';
 
 import {API_URL} from '@Root/private/constants';
 import {
-  IActionAddProceduresRequested,
-  IActionEditProceduresRequested,
-  IActionFilterProceduresRequested
+  IActionAddBenefitsRequested,
+  IActionEditBenefitsRequested,
+  IActionFilterBenefitsRequested
 } from './types';
 
-const proceduresUrl = `${API_URL}/procedure`;
+const benefitsUrl = `${API_URL}/benefit`;
 
-export default class ProceduresAPI {
-  public static fetchAll(payload: IActionFilterProceduresRequested['payload']) {
+export default class BenefitsAPI {
+  public static fetchAll(payload: IActionFilterBenefitsRequested['payload']) {
     console.log('payload=====', payload);
-    return axios.get(`${proceduresUrl}`, 
+    return axios.get(`${benefitsUrl}`, 
     { 
       params: {...payload?.payload},
       headers: {
@@ -29,10 +29,10 @@ export default class ProceduresAPI {
     });
   }
 
-  public static add(payload: IActionAddProceduresRequested['payload']) {
+  public static add(payload: IActionAddBenefitsRequested['payload']) {
     return axios({
       method: 'post',
-      url: proceduresUrl,
+      url: benefitsUrl,
       data: payload?.payload, 
       headers: {
         'Content-Type': 'application/json',
@@ -48,11 +48,11 @@ export default class ProceduresAPI {
     });
   }
 
-  public static edit(payload: IActionEditProceduresRequested['payload']) {
+  public static edit(payload: IActionEditBenefitsRequested['payload']) {
     console.log('payload?.payload====', payload?.payload);
     return axios({
       method: 'put',
-      url: proceduresUrl,
+      url: benefitsUrl,
       data: payload?.payload, 
       headers: {
         'Content-Type': 'application/json',

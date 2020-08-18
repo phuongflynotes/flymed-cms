@@ -16,6 +16,13 @@ const ProcedurePage = lazy(() => import(
   */
   '@Root/pages/ProcedurePage'));
 
+const BenefitPage = lazy(() => import(
+    /*
+      webpackChunkName: "benefit-page",
+      webpackPreload: true
+    */
+    '@Root/pages/BenefitPage'));
+
 const NotFoundPage = lazy(() => import(
   /*
     webpackChunkName: "not-found-page",
@@ -25,21 +32,21 @@ const NotFoundPage = lazy(() => import(
 
 const RiskPage = lazy(() => import(
   /*
-    webpackChunkName: "react-page",
+    webpackChunkName: "risk-page",
     webpackPrefetch: true
   */
   '@Root/pages/RiskPage'));
 
 const DashboardPage = lazy(() => import(
 /*
-    webpackChunkName: "react-page",
+    webpackChunkName: "dashboard-page",
     webpackPrefetch: true
 */
 '@Root/pages/DashboardPage'));
 
 const ProcedureExtractionPage = lazy(() => import(
 /*
-    webpackChunkName: "react-page",
+    webpackChunkName: "procedure-extra-page",
     webpackPrefetch: true
 */
 '@Root/pages/ProcedureExtractionPage'));
@@ -56,6 +63,7 @@ const App = () => {
                   <PublicRoute restricted={false} component={ProcedurePage} path="/" exact />
                   <PublicRoute restricted={false} component={ProcedureExtractionPage} path="/procedure/:id" exact />
                   <PublicRoute restricted={false} component={RiskPage} path="/risk" exact />
+                  <PublicRoute restricted={false} component={BenefitPage} path="/benefit" exact />
                   <PublicRoute restricted={false} component={NotFoundPage} path="/notfound" exact />
                   <PrivateRoute component={DashboardPage} path="/dashboard" exact />
               </Switch>

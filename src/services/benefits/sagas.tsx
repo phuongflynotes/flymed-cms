@@ -1,7 +1,7 @@
 import { all, call, put, takeEvery, delay } from 'redux-saga/effects';
 
 import { IAsyncCall } from '@Root/types';
-import ProceduresAPI from './apis';
+import BenefitsAPI from './apis';
 import {
   SHOW_WAITING,
   HIDE_WAITING
@@ -51,12 +51,12 @@ function* sagaAsyncCallGenerator(action: IAsyncCall, api: (payload: any) => Prom
   yield takeEvery(action.REQUESTED, asyncHandler, action, api);
 }
 
-export default function* procedureWatchers() {
+export default function* benefitWatchers() {
   yield all([
-    sagaAsyncCallListGenerator(ASYNC_FETCH_ALL_BENEFITS, ProceduresAPI.fetchAll),
-    sagaAsyncCallGenerator(ASYNC_ADD_BENEFITS, ProceduresAPI.add),
-    sagaAsyncCallGenerator(ASYNC_EDIT_BENEFITS, ProceduresAPI.edit),
-    sagaAsyncCallListGenerator(ASYNC_FILTER_BENEFITS, ProceduresAPI.fetchAll),
+    sagaAsyncCallListGenerator(ASYNC_FETCH_ALL_BENEFITS, BenefitsAPI.fetchAll),
+    sagaAsyncCallGenerator(ASYNC_ADD_BENEFITS, BenefitsAPI.add),
+    sagaAsyncCallGenerator(ASYNC_EDIT_BENEFITS, BenefitsAPI.edit),
+    sagaAsyncCallListGenerator(ASYNC_FILTER_BENEFITS, BenefitsAPI.fetchAll),
     // sagaAsyncCallGenerator(ASYNC_ADD_NOTE, NotesAPI.add),
     // sagaAsyncCallGenerator(ASYNC_EDIT_NOTE, NotesAPI.edit),
     // sagaAsyncCallGenerator(ASYNC_REMOVE_NOTE, NotesAPI.remove),

@@ -14,13 +14,13 @@ export const sidebarNavMain = [
 ];
 
 export const sidebarTemplates = [
-    {title: 'Procedures', url: '#', icons: ''}
+    {title: 'Procedures', url: '/', icons: ''}
 ];
 
 export const sidebarCategories = [
     {title: 'Methods', url: '#', icons: ''},
-    {title: 'Benefits', url: '#', icons: ''},
-    {title: 'Risks', url: '#', icons: ''},
+    {title: 'Benefits', url: '/benefit', icons: ''},
+    {title: 'Risks', url: '/risk', icons: ''},
     {title: 'Considerations', url: '#', icons: ''},
     {title: 'Future-considerations', url: '#', icons: ''},
     {title: 'Anaesthetics', url: '#', icons: ''},
