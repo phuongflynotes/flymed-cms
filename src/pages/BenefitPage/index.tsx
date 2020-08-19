@@ -7,7 +7,7 @@ import {fetchAllBenefits} from '@Root/services/benefits/actions';
 import { IGlobalState } from '@Root/types';
 
 import Content from './Content';
-import useStyles from './style';
+import useStyles from '@Root/utils/globalStyle';
 
 const BenefitPage = (props: any) => {
     const classes = useStyles();

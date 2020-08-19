@@ -19,7 +19,7 @@ import {showModalMain, hideModalMain} from '@Root/services/modalMain/actions';
 import {handleAddRisks, handleEditRisks, handleFilter} from '@Root/services/risks/actions';
 import { ContentMultipleListLoader } from '@Root/components/ContentLoader';
 
-import useStyles from './style';
+import useStyles from '@Root/utils/globalStyle';
 
 const itemsRoute = [
     { to: '/', label: 'Risks' },
@@ -169,7 +169,12 @@ const Content = (props: any) => {
                 :
                     (risks && risks.size > 0) && 
                         <React.Fragment>
-                            { risks.map((risk:any, index:number) => <Item handleEdit={handleEdit} item={risk} key={`risk-${index}-${risk._id}`} />) }
+                            { risks.map((risk:any, index:number) => <Item 
+                                                                        handleEdit={handleEdit} item={risk} 
+                                                                        key={`risk-${index}-${risk._id}`}
+                                                                        isShowStatusBtn={false}
+                                                                        isShowViewBtn={false}
+                                                                    />) }
                             { totalPages > 1 && <Pagination onChange={handlePagination} page={currentPage} count={totalPages} shape="rounded" showFirstButton showLastButton className={classes.pagination} /> }
                         </React.Fragment>
             }

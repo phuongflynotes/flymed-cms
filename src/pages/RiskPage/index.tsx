@@ -5,7 +5,7 @@ import {fetchAllRisks} from '@Root/services/risks/actions';
 import { IGlobalState } from '@Root/types';
 
 import Content from './Content';
-import useStyles from './style';
+import useStyles from '@Root/utils/globalStyle';
 
 const RiskPage = (props: any) => {
     const classes = useStyles();

@@ -22,7 +22,12 @@ const Item = (props: any) => {
     const classes = useStyles();
     const [isActive, setActive] = useState(false);
     const [isExpanded, setExpanded] = useState(false);
-    const {item, handleEdit} = props;
+    const {
+        item, 
+        handleEdit, 
+        isShowStatusBtn = true,
+        isShowViewBtn = true,
+    } = props;
 
     const handleChange = (event: any) => {
         event.preventDefault();
@@ -39,7 +44,10 @@ const Item = (props: any) => {
             <div className={classes.cardHeader}>
                 <div className={`${classes.leftArea} flex-row`}>
                     <Typography className={classes.title}>{item?.name}</Typography>
-                    <Typography className={classes.titleStatus}>{item?.status}</Typography>
+                    {
+                        isShowStatusBtn &&
+                            <Typography className={classes.titleStatus}>{item?.status}</Typography>
+                    }
                 </div>
                 <ul className={classes.rightArea}>
                     <li className={classes.iconSwitch}>
@@ -59,11 +67,14 @@ const Item = (props: any) => {
                             }}
                         />
                     </li>
-                    <li className={classes.groupIcon}>
-                        <button onClick={event => handleEdit(event, item)}>
-                            <img src={Images.Eye} alt="View" />
-                        </button>
-                    </li>
+                    {
+                        isShowViewBtn &&
+                            <li className={classes.groupIcon}>
+                                <button onClick={event => handleEdit(event, item)}>
+                                    <img src={Images.Eye} alt="View" />
+                                </button>
+                            </li>
+                    }
                     <li className={classes.groupIcon}>
                         <button onClick={event => handleEdit(event, item)}>
                             <img src={Images.Edit} alt="Edit" />

@@ -19,7 +19,7 @@ import {showModalMain, hideModalMain} from '@Root/services/modalMain/actions';
 import {handleAddBenefits, handleEditBenefits, handleFilter} from '@Root/services/benefits/actions';
 import { ContentMultipleListLoader } from '@Root/components/ContentLoader';
 
-import useStyles from './style';
+import useStyles from '@Root/utils/globalStyle';
 
 const itemsRoute = [
     { to: '/', label: 'Benefits' },
@@ -169,7 +169,12 @@ const Content = (props: any) => {
                 :
                     (benefits && benefits.size > 0) && 
                         <React.Fragment>
-                            { benefits.map((benefit:any, index:number) => <Item handleEdit={handleEdit} item={benefit} key={`benefit-${index}-${benefit._id}`} />) }
+                            { benefits.map((benefit:any, index:number) =>  <Item 
+                                                                                handleEdit={handleEdit} item={benefit} 
+                                                                                key={`benefit-${index}-${benefit._id}`} 
+                                                                                isShowStatusBtn={false}
+                                                                                isShowViewBtn={false}
+                                                                            />) }
                             { totalPages > 1 && <Pagination onChange={handlePagination} page={currentPage} count={totalPages} shape="rounded" showFirstButton showLastButton className={classes.pagination} /> }
                         </React.Fragment>
             }

@@ -19,7 +19,7 @@ import {showModalMain, hideModalMain} from '@Root/services/modalMain/actions';
 import {handleAddProcedures, handleEditProcedures, handleFilter} from '@Root/services/procedures/actions';
 import { ContentMultipleListLoader } from '@Root/components/ContentLoader';
 
-import useStyles from './style';
+import useStyles from '@Root/utils/globalStyle';
 
 const itemsRoute = [
     { to: '/', label: 'Procedures' },
@@ -169,7 +169,11 @@ const Content = (props: any) => {
                 :
                     (procedures && procedures.size > 0) && 
                         <React.Fragment>
-                            { procedures.map((procedure:any, index:number) => <Item handleEdit={handleEdit} item={procedure} key={`procedure-${index}-${procedure._id}`} />) }
+                            { procedures.map((procedure:any, index:number) => <Item handleEdit={handleEdit} item={procedure} 
+                                                                                key={`procedure-${index}-${procedure._id}`}
+                                                                                isShowStatusBtn={true}
+                                                                                isShowViewBtn={true}
+                                                                            />) }
                             { totalPages > 1 && <Pagination onChange={handlePagination} page={currentPage} count={totalPages} shape="rounded" showFirstButton showLastButton className={classes.pagination} /> }
                         </React.Fragment>
             }
