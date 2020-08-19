@@ -1,8 +1,8 @@
 import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 
-import SidebarMain from '@Root/components/SidebarMain';
-import SidebarCategories from '@Root/components/SidebarCategories';
+// import SidebarMain from '@Root/components/SidebarMain';
+// import SidebarCategories from '@Root/components/SidebarCategories';
 import {fetchAllBenefits} from '@Root/services/benefits/actions';
 import { IGlobalState } from '@Root/types';
 
@@ -24,9 +24,7 @@ const BenefitPage = (props: any) => {
     }, []);
 
     return (
-        <div className={`${classes.container} flex-row`}>
-            <SidebarMain {...props} />
-            <SidebarCategories {...props} />
+        <div className={`${classes.container} flex-column`}>
             <Content benefits={benefits} totalPages={totalPages} loading={loading}
                 currentPage={currentPage} searchQuery={searchQuery} {...props} 
             />

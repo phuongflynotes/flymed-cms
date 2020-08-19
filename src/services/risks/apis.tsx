@@ -11,7 +11,6 @@ const risksUrl = `${API_URL}/risk`;
 
 export default class RisksAPI {
   public static fetchAll(payload: IActionFilterRisksRequested['payload']) {
-    console.log('payload=====', payload);
     return axios.get(`${risksUrl}`, 
     { 
       params: {...payload?.payload},
@@ -49,7 +48,6 @@ export default class RisksAPI {
   }
 
   public static edit(payload: IActionEditRisksRequested['payload']) {
-    console.log('payload?.payload====', payload?.payload);
     return axios({
       method: 'put',
       url: risksUrl,

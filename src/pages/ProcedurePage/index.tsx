@@ -1,8 +1,6 @@
 import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 
-import SidebarMain from '@Root/components/SidebarMain';
-import SidebarCategories from '@Root/components/SidebarCategories';
 import {fetchAllProcedures} from '@Root/services/procedures/actions';
 import { IGlobalState } from '@Root/types';
 
@@ -25,8 +23,6 @@ const ProcedurePage = (props: any) => {
 
     return (
         <div className={`${classes.container} flex-row`}>
-            <SidebarMain {...props} />
-            <SidebarCategories {...props} />
             <Content procedures={procedures} totalPages={totalPages} loading={loading}
                 currentPage={currentPage} searchQuery={searchQuery} {...props} 
             />

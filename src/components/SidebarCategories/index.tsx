@@ -4,6 +4,7 @@ import {
     FormControl,
     Select
 } from '@material-ui/core';
+import { withRouter } from 'react-router-dom';
 
 import {COLORS} from '@Root/config/theme';
 import ItemLink from '@Root/components/ItemLink';
@@ -74,9 +75,10 @@ const useStyles = makeStyles(() => ({
     }
 }));
 
-const SidebarCategories = () => {
+const SidebarCategories = (props:any) => {
     const classes = useStyles();
     const [languages, setLanguages] = useState('en');
+    const { location } = props;
 
     const handleChange = (event:any) => {
         event.preventDefault();
@@ -106,7 +108,7 @@ const SidebarCategories = () => {
                     items={sidebarTemplates} 
                     styleContainer={classes.itemContainer} 
                     styleItemRow={classes.styleItemRowActive}
-                    active={true}
+                    pathname={location.pathname}
                 />
             </div>
             <div className={`${classes.blockContainer}`}>
@@ -115,10 +117,11 @@ const SidebarCategories = () => {
                     items={sidebarCategories} 
                     styleContainer={classes.itemContainer} 
                     styleItemRow={classes.styleItemRow}
+                    pathname={location.pathname}
                 />
             </div>
         </div>
     )
 }
 
-export default SidebarCategories;
+export default withRouter(SidebarCategories);

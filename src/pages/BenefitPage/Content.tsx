@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import {
     FormControl,
     OutlinedInput,
@@ -34,6 +34,7 @@ const Content = (props: any) => {
     const { location, benefits, totalPages, currentPage, searchQuery, loading } = props;
     const [txtFilter, setTxtFilter] = useState('');
     const [txtSearch, setTxtSearch] = useState(searchQuery);
+    const [isPopulateForm, setPopulateForm] = useState(false);
     const [dataForm, setDataForm] = useState({
         name: '',
         description: ''
@@ -43,12 +44,15 @@ const Content = (props: any) => {
     const [idBenefit, setIdBenefit] = useState(null);
 
     //reset timeout when user input, handle input search
-    // useEffect(() => {
-    //     const timeout = setTimeout(() => {
-    //         dispatch(handleFilter({searchQuery: txtSearch, status: txtFilter}));
-    //     }, 1500);
-    //     return () => clearTimeout(timeout);
-    // }, [txtSearch]);
+    useEffect(() => {
+        if(isPopulateForm) {
+            const timeout = setTimeout(() => {
+                dispatch(handleFilter({searchQuery: txtSearch, status: txtFilter}));
+            }, 1500);
+            return () => clearTimeout(timeout);
+        }
+        return () => {}
+    }, [txtSearch]);
 
     const dispatch = useDispatch();
     const modalMainState = useSelector((state:any) => state?.modalMainState);
@@ -62,6 +66,7 @@ const Content = (props: any) => {
         event.persist();
         const value = event.target.value;
         setTxtSearch(value);
+        setPopulateForm(true);
     }
 
     const handleFilterChange = (event: any) => {

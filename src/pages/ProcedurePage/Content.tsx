@@ -31,9 +31,10 @@ const itemsRoute = [
 
 const Content = (props: any) => {
     const classes = useStyles();
-    const { location, procedures, totalPages, currentPage, searchQuery, loading } = props;
+    const { location, procedures, totalPages, currentPage, loading } = props;
     const [txtFilter, setTxtFilter] = useState('');
-    const [txtSearch, setTxtSearch] = useState(searchQuery);
+    const [txtSearch, setTxtSearch] = useState('');
+    const [isPopulateForm, setPopulateForm] = useState(false);
     const [dataForm, setDataForm] = useState({
         name: '',
         description: ''
@@ -44,10 +45,13 @@ const Content = (props: any) => {
 
     //reset timeout when user input, handle input search
     useEffect(() => {
-        const timeout = setTimeout(() => {
-            dispatch(handleFilter({searchQuery: txtSearch, status: txtFilter}));
-        }, 1500);
-        return () => clearTimeout(timeout);
+        if(isPopulateForm) {
+            const timeout = setTimeout(() => {
+                dispatch(handleFilter({searchQuery: txtSearch, status: txtFilter}));
+            }, 1500);
+            return () => clearTimeout(timeout);
+        }
+        return () => {}
     }, [txtSearch]);
 
     const dispatch = useDispatch();
@@ -62,6 +66,7 @@ const Content = (props: any) => {
         event.persist();
         const value = event.target.value;
         setTxtSearch(value);
+        setPopulateForm(true);
     }
 
     const handleFilterChange = (event: any) => {

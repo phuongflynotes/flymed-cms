@@ -11,7 +11,6 @@ const proceduresUrl = `${API_URL}/procedure`;
 
 export default class ProceduresAPI {
   public static fetchAll(payload: IActionFilterProceduresRequested['payload']) {
-    console.log('payload=====', payload);
     return axios.get(`${proceduresUrl}`, 
     { 
       params: {...payload?.payload},
@@ -49,7 +48,6 @@ export default class ProceduresAPI {
   }
 
   public static edit(payload: IActionEditProceduresRequested['payload']) {
-    console.log('payload?.payload====', payload?.payload);
     return axios({
       method: 'put',
       url: proceduresUrl,

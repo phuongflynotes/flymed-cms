@@ -7,6 +7,7 @@ import { COLORS } from '@Root/config/theme';
 const useStyles = makeStyles(() => ({
     container: {
         height: "100vh",
+        flex: 2,
     },
     logo: {
         width: "30px",

@@ -34,7 +34,6 @@ export default (state: IBenefitsStateRecord = initialState, action: IActionsBene
     case FETCH_ALL_BENEFITS_SUCCESS:
     case FILTER_BENEFITS_SUCCESS:
       const { data, currentPage, totalPages, searchQuery } = action.payload?.data;
-      console.log('data====', action.payload)
       const benefitList: IBenefit[] = data;
       return state.merge({
         'loading': false,

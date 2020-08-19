@@ -34,7 +34,6 @@ export default (state: IRisksStateRecord = initialState, action: IActionsRisks):
     case FETCH_ALL_RISKS_SUCCESS:
     case FILTER_RISKS_SUCCESS:
       const { data, currentPage, totalPages, searchQuery } = action.payload?.data;
-      console.log('data====', action.payload)
       const riskList: IRisk[] = data;
       return state.merge({
         'loading': false,

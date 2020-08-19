@@ -14,7 +14,7 @@ const useStyles = makeStyles(() => ({
         marginRight: "28px"
     },
     styleItemRowActive: {
-        padding: "9px 9px 9px 45px",
+        padding: "10px 0 14px 56px",
         backgroundColor: `${COLORS.lightGreyColor}`,
         borderTopRightRadius: "100px",
         borderBottomRightRadius: "100px",
@@ -22,7 +22,7 @@ const useStyles = makeStyles(() => ({
         alignItems: "center"
     },
     styleItemRow: {
-        padding: "9px 9px 9px 45px",
+        padding: "10px 0 14px 56px",
         display: "flex",
         alignItems: "center"
     },
@@ -40,16 +40,16 @@ type Props = {
     iconUrl?: string,
     iconStyle?: string,
     active?: boolean,
+    pathname?: string,
 }
 
 const ItemLink:React.FC<Props> = (props: any) => {
     const { 
         items = [],
         styleContainer = null,
-        styleItemRow = null,
         iconUrl = '',
         iconStyle = null,
-        active = false
+        pathname = '/'
     } = props;
 
     const classes = useStyles();
@@ -63,7 +63,7 @@ const ItemLink:React.FC<Props> = (props: any) => {
                     key={item.title ? item.title : index}
                     variant="body2"
                     href={item.url ? item.url : '#'}
-                    className={styleItemRow ? styleItemRow : active ? styleItemRow : classes.styleItemRow}
+                    className={item.url === pathname ? classes.styleItemRowActive : classes.styleItemRow}
                 >
                     { (iconUrl !== '') && <img src={iconUrl} alt="note" className={iconStyle !== '' ? iconStyle : classes.iconNote} /> }
                     {item.title}

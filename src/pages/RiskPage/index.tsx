@@ -1,8 +1,6 @@
 import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 
-import SidebarMain from '@Root/components/SidebarMain';
-import SidebarCategories from '@Root/components/SidebarCategories';
 import {fetchAllRisks} from '@Root/services/risks/actions';
 import { IGlobalState } from '@Root/types';
 
@@ -24,9 +22,7 @@ const RiskPage = (props: any) => {
     }, []);
 
     return (
-        <div className={`${classes.container} flex-row`}>
-            <SidebarMain {...props} />
-            <SidebarCategories {...props} />
+        <div className={`${classes.container} flex-column`}>
             <Content risks={risks} totalPages={totalPages} loading={loading}
                 currentPage={currentPage} searchQuery={searchQuery} {...props} 
             />

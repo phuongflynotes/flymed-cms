@@ -11,7 +11,6 @@ const benefitsUrl = `${API_URL}/benefit`;
 
 export default class BenefitsAPI {
   public static fetchAll(payload: IActionFilterBenefitsRequested['payload']) {
-    console.log('payload=====', payload);
     return axios.get(`${benefitsUrl}`, 
     { 
       params: {...payload?.payload},
@@ -49,7 +48,6 @@ export default class BenefitsAPI {
   }
 
   public static edit(payload: IActionEditBenefitsRequested['payload']) {
-    console.log('payload?.payload====', payload?.payload);
     return axios({
       method: 'put',
       url: benefitsUrl,
